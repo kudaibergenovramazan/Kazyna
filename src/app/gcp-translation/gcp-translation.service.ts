@@ -22,7 +22,7 @@ export class GcpTranslateService {
     const currentTranslation = await this.translationService.getTranslation(payload);
     if(currentTranslation) return currentTranslation;
 
-    console.log('Current translation not found!')
+    console.log(`${payload.text} сөзі базадан табылмады!`)
 
     const [translation] = await translateClient.translate(payload.text, {
       from: payload.from,
